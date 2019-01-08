@@ -5,7 +5,7 @@
 출력 예시: a3b2c6a1
 '''
 
-data = "ababb11ccc"
+data = "aaabbcccccca"
 
 count = 1
 sol = data[0]
