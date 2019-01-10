@@ -5,15 +5,21 @@
 출력 예시: true false false true false
 '''
 
-data= "0123456789"
+data= "012345789"
 sol = "False"
-for i in range(1,len(data)):
-    for n in range(1,10 ):
-        if data[i-1] == n:
-          sol = "True"
-          break
-        else:
-          sol = "False"
+cri = 1
+t=1
+for i in range(1,10):
+    for n in range(1,len(data) ):
+
+        if data[n-1] == (i-1):
+           t = data[n-1]
+           cri *= 0
+        else :
+            cri *= 1
 
 
-print(sol)
+
+
+
+print(cri)
