@@ -4,7 +4,7 @@
 입력 예시: 0123456789 01234 01234567890 6789012345 012322456789
 출력 예시: true false false true false
 '''
-
+'''
 data= "0123456789"
 0 == data[0]
 sol = 1
@@ -28,5 +28,23 @@ if sol == 1:
 else :
     sol="false"
 
-
 print(sol)
+
+'''
+
+def chkDupNum(s):
+     result = [ ]
+     for num in s:
+         if num not in result: ##result 안에 없으면
+             result.append(num) ##숫자 넣고 append : 덧붙이는 기능
+         else:
+             return False ##없으면 false리턴
+     return len(result) == 10 ##0~9까지 다 넣어서 길이가 10이 안되면 false 리턴 되면 true 리턴
+
+
+
+print(chkDupNum("0123456789")) # True 리턴
+print(chkDupNum("01234")) # False 리턴
+print(chkDupNum("01234567890")) # False 리턴
+print(chkDupNum("6789012345")) # True 리턴
+print(chkDupNum("012322456789")) # False 리턴
