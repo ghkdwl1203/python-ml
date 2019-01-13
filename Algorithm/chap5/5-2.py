@@ -2,7 +2,7 @@ def put(item) :
     queue.append(item)
 
 def get():
-    return queue.pop()
+    return queue.pop(1)
 
 
 if __name__ == '__main__':

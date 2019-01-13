@@ -12,7 +12,7 @@ if __name__ == "__main__":
     push(3)
     push(4)
     print("현재 stack의 모습")
-    print(stack)
+    print(stack[1])
 
     while stack:
         print("POP>{}".format(pop()))
