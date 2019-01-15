@@ -1,4 +1,7 @@
-def recursive()
 
+def recursive(n):
+    if( n > 1 ):
+        recursive(n - 1)
+    print(n)
 
-    return recursive()
+recursive(10)
