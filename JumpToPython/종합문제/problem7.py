@@ -35,7 +35,9 @@ for t in range(1,len(dataList)+1):
     for i in range(1,len(list)+1):
            if dataList[t-1] ==  list[i-1] :
                sol = sol + str(Temp[i-1])
-               print(sol)
+
+           else :
+               sol = sol + str(" ")
 
 print(Temp)
 print(dataList)
