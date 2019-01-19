@@ -1,5 +1,14 @@
+class Stack(list):
+    push = list.append    # Insert
+                          # Delete - 내장 pop 메소드 활용
+    def is_empty(self):   # 데이터가 없는지 확인
+        if not self:
+            return True
+        else:
+            return False
 
-from stack import Stack
+    def peek(self):        # 최상단 데이터 확인
+        return self[-1]
 
 class Calculator:
     def __init__(self, org_exp):
