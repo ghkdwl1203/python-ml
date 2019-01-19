@@ -29,14 +29,14 @@ dataList = data.split(" ")
 Temp = [0]*len(list)
 
 sol = ""
-for Num in range(1,len(list)+1) :
-    Temp[Num-1]= chr(64+Num)
+for num in range(1,len(list)+1) :
+    Temp[num-1]= chr(64+num)
 for t in range(1,len(dataList)+1):
     for i in range(1,len(list)+1):
            if dataList[t-1] ==  list[i-1] :
                sol = sol + str(Temp[i-1])
 
-           else :
+           if dataList[t-1] == '':
                sol = sol + str(" ")
 
 print(Temp)
