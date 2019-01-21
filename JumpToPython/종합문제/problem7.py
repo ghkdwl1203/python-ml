@@ -32,13 +32,14 @@ sol = ""
 for num in range(1,len(list)+1) :
     Temp[num-1]= chr(64+num)
 for t in range(1,len(dataList)+1):
+    if dataList[t - 1] == "":
+        sol = sol + str(" ")
     for i in range(1,len(list)+1):
            if dataList[t-1] ==  list[i-1] :
                sol = sol + str(Temp[i-1])
 
-           if dataList[t-1] == '':
-               sol = sol + str(" ")
 
-print(Temp)
-print(dataList)
+
+print(list)
+print(dataList[1])
 print(sol)

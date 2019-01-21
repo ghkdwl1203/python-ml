@@ -3,7 +3,7 @@ import urllib.request as req
 
 url="https://finance.naver.com/marketindex"
 
-res = req.urlopen(url).read().decode("EUC-KR")
+res = req.urlopen(url).read().decode("EUC-KR")  #
 soup = BeautifulSoup(res,"html.parser")
 
 ul= soup.select_one("ul#exchangeList").select_one(".usd").select_one(".value").string
@@ -18,4 +18,4 @@ for li in li_list:
     # print(h3)
     value = li.select_one(".value").string
     # print(value)
-    print(h3,">",value)
+    print(h3,"=",value)
