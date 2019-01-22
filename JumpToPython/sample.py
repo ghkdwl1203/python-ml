@@ -1,23 +1,13 @@
 from bs4 import BeautifulSoup
 import urllib.request as req
 
-url="https://finance.naver.com/marketindex"
+url="http://news.einfomax.co.kr/news/articleView.html?idxno=4004050"
 
-res = req.urlopen(url).read().decode("EUC-KR")  #
+res = req.urlopen(url).read()  #
 soup = BeautifulSoup(res,"html.parser")
 
-ul= soup.select_one("ul#exchangeList").select_one(".usd").select_one(".value").string
 
+title= soup.find("article-view-content-div")
 #select_one(".usd").select_one(".value").string
-
+ul= soup.select_one(".user-content").select_one("div#article-view-content-div")
 print(ul)
-# print("=======================시작===================")
-li_list = soup.select_one("ul#exchangeList").select("li")
-print("환율 리스트")
-for li in li_list:
-    # print(li)
-    h3 = li.select_one("h3").string
-    # print(h3)
-    value = li.select_one(".value").string
-    # print(value)
-    print(h3,">",value)
