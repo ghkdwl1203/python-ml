@@ -8,7 +8,7 @@ xor_data=[
     [1,1,0]
 ]
 
-data=[]
+data=[] 
 label=[]
 
 for row in xor_data:
