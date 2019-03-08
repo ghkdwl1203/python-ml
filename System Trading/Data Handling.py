@@ -1,11 +1,17 @@
 import pandas_datareader.data as web
 
+
 import datetime
+import matplotlib.pyplot as plt
 
-start = datetime.datetime(2016, 2, 19)
+from pandas.tseries import converter
 
-end = datetime.datetime(2016, 3, 4)
+start = datetime.datetime(2010, 1, 1)
 
-gs = web.DataReader("028670.팬오션", "yahoo", start, end)
+end = datetime.datetime(2016, 3, 19)
 
-print(gs)
+
+data = web.DataReader("AAPL", "yahoo", start, end)
+
+converter.register()
+plt.plot(data.index, data['Adj Close'])
