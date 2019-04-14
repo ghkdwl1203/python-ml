@@ -10,26 +10,26 @@ print(instCpStockCode.GetCount()) # 상장종목수
 
 
 stockNum = instCpStockCode.GetCount()
-list = []
+list = ['원익IPS','비에이치','하이비전시스템','현대제철','SK네트웍스','포스코케미칼','한화케미칼','SK텔레콤','제이콘텐트리',
+        '한온시스템','팬오션','삼성증권']
+code = []
+name =[]
+price=[]
+
 # 종목코드, 종목명 찾는 로직
-for i in range(stockNum):
-    if instCpStockCode.GetData(1, i) == '원익IPS':
-        print(" 종목코드 : ",instCpStockCode.GetData(0,i))
-        print(" 종목명 : ",instCpStockCode.GetData(1,i))
-        print(i)
-        list.append(instCpStockCode.GetData(0, i))
-        print(list)
-    if instCpStockCode.GetData(1, i) == '비에이치':
-        print(" 종목코드 : ",instCpStockCode.GetData(0,i))
-        print(" 종목명 : ",instCpStockCode.GetData(1,i))
-        print(i)
-        list.append(instCpStockCode.GetData(0,i))
-        print(list)
+for j in  range(len(list)):
+    for i in range(stockNum):
+        if instCpStockCode.GetData(1, i) == list[j]:
+            temp = instCpStockCode.GetData(0,i)
+
+    code.append(temp)
+print(list)
+print(code)
 
 
 if __name__ == "__main__":
     ### 자료가져오기
-    code =list # 삼성전자 종목코드
-    numHist =1 # 과거 100일치 데이터
-    df=subStockChart(code, numHist)
+    # 삼성전자 종목코드
+    numHist = 100 # 과거 100일치 데이터
+    df=subStockChart(code[1], numHist)
     print(df)
