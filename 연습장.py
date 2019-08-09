@@ -1,16 +1,30 @@
-import win32com.client
-instStockChart = win32com.client.Dispatch("CpSysDib.StockChart")
+import sys
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import  *
+from PyQt5.QAxContainer import *
 
-print(instStockChart.SetInputValue(0, "A003540"))  # 0: 종목코드
-instStockChart.SetInputValue(1, ord('2')) # 1 : 기간으로 요청 , 2 : 개수로 요청
-instStockChart.SetInputValue(4, 10) # 4: 요청개수
-instStockChart.SetInputValue(5, 5) # 5: 종가에 해당하는 값
-instStockChart.SetInputValue(6, ord('D')) #6 : 일단위
-instStockChart.SetInputValue( 9, ord('1')) # 수정주가
+class MyWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("PyStock")
+        self.setGeometry(300, 300, 300, 150)
 
-instStockChart.BlockRequest() # 데이터 처리 요청
-instStockChart.BlockRequest()
+        label = QLabel('종목코드: ', self)
+        label.move(20, 20)
 
-numData = instStockChart.GetHeaderValue(3)
-for i in range(numData):
-    print(instStockChart.GetDataValue(0, i))
+        self.code_edit = QLineEdit(self)
+        self.code_edit.move(80, 20)
+        self.code_edit.setText("039490")
+
+        btn1 = QPushButton("조회", self)
+        btn1.move(190, 20)
+
+        self.text_edit = QTextEdit(self)
+        self.text_edit.setGeometry(10, 60, 280, 80)
+        self.text_edit.setEnabled(False)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    myWindow = MyWindow()
+    myWindow.show()
+    app.exec_()

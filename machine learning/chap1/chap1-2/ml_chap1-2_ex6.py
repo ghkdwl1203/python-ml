@@ -11,13 +11,13 @@ title= soup.select_one("div#container")
 
 print(title)
 
-# print("=======================시작===================")
-# li_list = soup.select_one("ul#exchangeList").select("li")
-# print("환율 리스트")
-# for li in li_list:
-#     # print(li)
-#     h3 = li.select_one("h3").string
-#     # print(h3)
-#     value = li.select_one(".value").string
-#     # print(value)
-#     print(h3,"=",value)
+ print("=======================시작===================")
+ li_list = soup.select_one("ul#exchangeList").select("li")
+ print("환율 리스트")
+ for li in li_list:
+     print(li)
+     h3 = li.select_one("h3").string
+     print(h3)
+     value = li.select_one(".value").string
+     print(value)
+     print(h3,"=",value)
