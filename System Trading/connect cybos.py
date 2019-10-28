@@ -1,4 +1,5 @@
 from pandas import DataFrame
+import pandas as pd
 import win32com.client
 import win32com
 from subDS import subStockChart # 위에 작성한 subStockChart 불러오기
@@ -10,7 +11,7 @@ print(instCpStockCode.GetCount()) # 상장종목수
 
 
 stockNum = instCpStockCode.GetCount()
-list = ['원익IPS','비에이치','하이비전시스템','현대제철','SK네트웍스','포스코케미칼','한화케미칼','SK텔레콤','제이콘텐트리',
+list = ['스튜디오드래곤','비에이치','하이비전시스템','현대제철','SK네트웍스','포스코케미칼','한화케미칼','SK텔레콤','제이콘텐트리',
         '한온시스템','팬오션','삼성증권']
 code = []
 name =[]
@@ -32,4 +33,11 @@ if __name__ == "__main__":
     # 삼성전자 종목코드
     numHist = 100 # 과거 100일치 데이터
     df=subStockChart(code[1], numHist)
-    print(df)
+    print(type(df))
+    print(df['Date'])
+
+print(code[1])
+list = [df['Date']]
+df = pd.DataFrame(lst).T
+corr = df.corr(method = 'pearson')
+print(corr)
