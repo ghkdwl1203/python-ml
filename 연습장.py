@@ -1,7 +1,7 @@
 import win32com.client
 instStockChart = win32com.client.Dispatch("CpSysDib.StockChart")
 
-print(instStockChart.SetInputValue(0, "A003540"))  # 0: 종목코드
+print(instStockChart.SetInputValue(0, "U180"))  # 0: 종목코드
 instStockChart.SetInputValue(1, ord('2')) # 1 : 기간으로 요청 , 2 : 개수로 요청
 instStockChart.SetInputValue(4, 10) # 4: 요청개수
 instStockChart.SetInputValue(5, 5) # 5: 종가에 해당하는 값
